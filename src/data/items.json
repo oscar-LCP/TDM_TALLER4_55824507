@@ -2,11 +2,19 @@
   {
     "name": "Objeto 1",
     "description": "Descripción 1",
-    "id": 1
+    "id": 1,
+    "price": 10.99,
+    "category": "Categoría 1",
+    "stock": 100,
+    "date": "2024-06-01"
   },
   {
     "name": "Objeto 2",
     "description": "Descripción 2",
-    "id": 2
+    "id": 2,
+    "price": 15.99,
+    "category": "Categoría 2",
+    "stock": 50,
+    "date": "2024-06-02"
   }
 ]
