@@ -18,7 +18,7 @@ async function loadCatalog() {
         console.error("Error cargando catálogo:", err);
         // TODO: Mostrar mensaje de error en la UI
     }
-}
+}                                                   
 
 // Función para renderizar un item en el catálogo
 function renderItem(item) {

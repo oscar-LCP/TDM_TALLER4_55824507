@@ -16,5 +16,14 @@
     "category": "Categoría 2",
     "stock": 50,
     "date": "2024-06-02"
+  },
+  {
+    "name": "Obj 3",
+    "description": "Descr 3",
+    "price": 0.22,
+    "category": "cate",
+    "stock": 99,
+    "date": "2026-09-07",
+    "id": 1788388359826
   }
 ]
