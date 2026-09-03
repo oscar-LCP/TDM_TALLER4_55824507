@@ -39,6 +39,7 @@ function renderItem(item) {
                 <h1 class = "name">${item.name}</h1>
                 <p class = "description">${item.description}</p>
                 <p class = "price">${item.price};
+                <button class = "buy">Comprar ></button>
             </div>
         </div>
     `;
