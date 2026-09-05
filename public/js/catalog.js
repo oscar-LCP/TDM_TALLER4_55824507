@@ -28,21 +28,17 @@ async function loadCatalog() {
 
 // Función para renderizar un item en el catálogo
 function renderItem(item) {
-    // TODO: Crear un elemento HTML (ej: div o card)
-    // TODO: Asignar los datos del item (name, description, etc.)
-    // TODO: Insertar el elemento en el contenedor
-    const row = document.createElement("div");
-    row.innerHTML = `
-        <article class="card">
-            ${item.imageUrl ? `<img class="card-image" src="${item.imageUrl}" alt="Imagen de ${item.name}" loading="lazy">` : ""}
-            <div class="card-container">
-                <h2 class="name">${item.name}</h2>
-                <p class="description">${item.description || ""}</p>
-                <p class="price">$${Number(item.price).toFixed(2)}</p>
-            </div>
-        </article>
+    const card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML = `
+        ${item.imageUrl ? `<img class="card-image" src="${item.imageUrl}" alt="Imagen de ${item.name}" loading="lazy">` : ""}
+        <div class="card-container">
+            <h2 class="name">${item.name}</h2>
+            <p class="description">${item.description || ""}</p>
+            <p class="price">$${Number(item.price).toFixed(2)}</p>
+        </div>
     `;
-    catalogContainer.appendChild(row)
+    catalogContainer.appendChild(card);
 }
 
 // Inicializar el catálogo cuando cargue la página

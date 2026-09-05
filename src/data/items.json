@@ -1,39 +1,42 @@
 [
   {
-    "name": "Objeto 1",
-    "description": "Descripción 1",
-    "id": 1,
-    "price": 9.99,
-    "category": "Categoría 1",
-    "stock": 100,
-    "date": "2024-06-01"
+    "name": "Audífonos",
+    "description": "Audifonos Inalambricos Bluetooth Over Ear Diadema Estereo P9 Plateado",
+    "price": 50,
+    "category": "Tecnología",
+    "stock": 48,
+    "date": "2026-09-10",
+    "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/24975256/audifonos-inalambricos-bluetooth-over-ear-diadema-estereo-p9-plateado.jpg?v=638639410899930000",
+    "id": 1788647561472
   },
   {
-    "name": "Objeto 2",
-    "description": "Descripción 2",
-    "id": 2,
-    "price": 15.99,
-    "category": "Categoría 2",
-    "stock": 50,
-    "date": "2024-06-02"
+    "name": "TV",
+    "description": "Televisor HISENSE 65 pulgadas QLED Uhd4K Smart TV 65QD5SV",
+    "price": 120,
+    "category": "Tecnología",
+    "stock": 171,
+    "date": "2026-09-15",
+    "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/34577031/Televisor-HISENSE-65-pulgadas-QLED-Uhd-4K-Smart-TV-65QD5SV-3822830_a.jpg?v=639216606152630000",
+    "id": 1788647742547
   },
   {
-    "name": "Obj 3",
-    "description": "Descr 3",
-    "price": 0.22,
-    "category": "cate",
-    "stock": 99,
-    "date": "2026-09-07",
-    "id": 1788388359826
+    "name": "Barra de Sonido",
+    "description": "Barra de sonido LG S20A 50 W 2.0 Canales Bluetooth Negro",
+    "price": 300,
+    "category": "Tecnología",
+    "stock": 450,
+    "date": "2026-09-21",
+    "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/34572131/Barra-de-sonido-LG-S20AACOLLLK-50-W-20-Barra-de-sonido-50W-NEGRO-3704438_a.jpg?v=639216578712600000",
+    "id": 1788647811844
   },
   {
-    "name": "Falcao",
-    "description": "Viva Colombia, viva Falcao",
-    "price": 9,
-    "category": "si",
-    "stock": 9,
-    "date": "2026-07-27",
-    "imageUrl": "https://img.a.transfermarkt.technology/portrait/big/39152-1721184791.JPG?lm=4711",
-    "id": 1788576649716
+    "name": "Tablet",
+    "description": "Tablet LENOVO Idea Tab 11 pulgadas Wifi RAM 8 GB 128 GB Luna Grey",
+    "price": 450,
+    "category": "Tecnología",
+    "stock": 500,
+    "date": "2026-09-16",
+    "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/34573455/Tablet-LENOVO-Idea-Tab-11-pulgadas-Wifi-128-GB-8-GB-RAM-Luna-Grey-3733767_a.jpg?v=639216586315700000",
+    "id": 1788647941006
   }
 ]
