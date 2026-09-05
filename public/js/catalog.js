@@ -1,7 +1,6 @@
 // Script base para la vista de catálogo
 // Aquí deben consumir la API de items y mostrarlos en la página
-import { getItems, getItem, createItem, updateItem, deleteItem } from "./services/api.js";
-import { renderItems, resetForm, fillForm } from "./ui/ui.js";
+import { getItems } from "./services/api.js";
 
 // Constante con la URL base de la API
 const API_URL = "/api/items";
@@ -34,14 +33,14 @@ function renderItem(item) {
     // TODO: Insertar el elemento en el contenedor
     const row = document.createElement("div");
     row.innerHTML = `
-        <div class = "card">
-            <div class = "card-container">
-                <h1 class = "name">${item.name}</h1>
-                <p class = "description">${item.description}</p>
-                <p class = "price">${item.price};
-                <button class = "buy">Comprar ></button>
+        <article class="card">
+            ${item.imageUrl ? `<img class="card-image" src="${item.imageUrl}" alt="Imagen de ${item.name}" loading="lazy">` : ""}
+            <div class="card-container">
+                <h2 class="name">${item.name}</h2>
+                <p class="description">${item.description || ""}</p>
+                <p class="price">$${Number(item.price).toFixed(2)}</p>
             </div>
-        </div>
+        </article>
     `;
     catalogContainer.appendChild(row)
 }

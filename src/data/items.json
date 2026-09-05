@@ -25,5 +25,15 @@
     "stock": 99,
     "date": "2026-09-07",
     "id": 1788388359826
+  },
+  {
+    "name": "Falcao",
+    "description": "Viva Colombia, viva Falcao",
+    "price": 9,
+    "category": "si",
+    "stock": 9,
+    "date": "2026-07-27",
+    "imageUrl": "https://img.a.transfermarkt.technology/portrait/big/39152-1721184791.JPG?lm=4711",
+    "id": 1788576649716
   }
 ]

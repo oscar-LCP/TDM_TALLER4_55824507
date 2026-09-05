@@ -47,6 +47,7 @@ form.addEventListener("submit", async (e) => {
     const category = form.querySelector("#category").value;
     const stock = parseInt(form.querySelector("#stock").value);
     const date = form.querySelector("#date").value;
+    const imageUrl = form.querySelector("#imageUrl").value.trim();
 
     if (!name) {
         alert("El campo nombre es obligatorio");
@@ -55,10 +56,10 @@ form.addEventListener("submit", async (e) => {
 
     try {
         if (editingId) {
-            await updateItem(editingId, { name, description, price, category, stock, date });
+            await updateItem(editingId, { name, description, price, category, stock, date, imageUrl });
             editingId = null;
         } else {
-            await createItem({ name, description, price, category, stock, date });
+            await createItem({ name, description, price, category, stock, date, imageUrl });
         }
 
         resetForm(form, submitBtn);

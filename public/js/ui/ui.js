@@ -10,6 +10,7 @@ export function renderItems(items, tableBody) {
             <td>${item.category}</td>
             <td>${item.stock}</td>
             <td>${item.date}</td>
+            <td>${item.imageUrl ? `<img class="table-image" src="${item.imageUrl}" alt="Imagen de ${item.name}" loading="lazy">` : "Sin imagen"}</td>
             <td>
                 <button class="btn-edit" data-id="${item.id}">Editar</button>
                 <button class="btn-delete" data-id="${item.id}">Eliminar</button>
@@ -31,5 +32,6 @@ export function fillForm(form, item, submitBtn) {
     form.querySelector("#category").value = item.category;
     form.querySelector("#stock").value = item.stock;
     form.querySelector("#date").value = item.date;
+    form.querySelector("#imageUrl").value = item.imageUrl || "";
     if (submitBtn) submitBtn.textContent = "Guardar cambios";
 }
