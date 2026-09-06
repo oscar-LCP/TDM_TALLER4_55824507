@@ -2,8 +2,8 @@
   {
     "name": "Audífonos",
     "description": "Audifonos Inalambricos Bluetooth Over Ear Diadema Estereo P9 Plateado",
-    "price": 50,
-    "category": "Tecnología",
+    "price": 5000000,
+    "category": "Audio y sonido",
     "stock": 48,
     "date": "2026-09-10",
     "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/24975256/audifonos-inalambricos-bluetooth-over-ear-diadema-estereo-p9-plateado.jpg?v=638639410899930000",
@@ -12,8 +12,8 @@
   {
     "name": "TV",
     "description": "Televisor HISENSE 65 pulgadas QLED Uhd4K Smart TV 65QD5SV",
-    "price": 120,
-    "category": "Tecnología",
+    "price": 120000000,
+    "category": "Audio y video",
     "stock": 171,
     "date": "2026-09-15",
     "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/34577031/Televisor-HISENSE-65-pulgadas-QLED-Uhd-4K-Smart-TV-65QD5SV-3822830_a.jpg?v=639216606152630000",
@@ -22,8 +22,8 @@
   {
     "name": "Barra de Sonido",
     "description": "Barra de sonido LG S20A 50 W 2.0 Canales Bluetooth Negro",
-    "price": 300,
-    "category": "Tecnología",
+    "price": 300000,
+    "category": "Audio y sonido",
     "stock": 450,
     "date": "2026-09-21",
     "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/34572131/Barra-de-sonido-LG-S20AACOLLLK-50-W-20-Barra-de-sonido-50W-NEGRO-3704438_a.jpg?v=639216578712600000",
@@ -32,11 +32,91 @@
   {
     "name": "Tablet",
     "description": "Tablet LENOVO Idea Tab 11 pulgadas Wifi RAM 8 GB 128 GB Luna Grey",
-    "price": 450,
-    "category": "Tecnología",
+    "price": 450000,
+    "category": "Computación",
     "stock": 500,
     "date": "2026-09-16",
     "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/34573455/Tablet-LENOVO-Idea-Tab-11-pulgadas-Wifi-128-GB-8-GB-RAM-Luna-Grey-3733767_a.jpg?v=639216586315700000",
     "id": 1788647941006
+  },
+  {
+    "name": "Celular",
+    "description": "Samsung Galaxy A16 256GB 8GB Ram LTE + Smartwatch",
+    "price": 111000,
+    "category": "Smartphone",
+    "stock": 200,
+    "date": "2026-08-12",
+    "imageUrl": "https://www.korolos.com.co/wp-content/uploads/2025/06/A16KOROLOS13.jpg",
+    "id": 1788651434907
+  },
+  {
+    "name": "Computador ",
+    "description": "Portátil HP 15.6\" Pulgadas fd0263la Intel Core i5 - RAM 16GB - Disco SSD 1TB - Azul",
+    "price": 2000000,
+    "category": "Computación",
+    "stock": 500,
+    "date": "2026-07-13",
+    "imageUrl": "https://www.ktronix.com/medias/198990787503-001-750Wx750H?context=bWFzdGVyfGltYWdlc3wxODQ4MHxpbWFnZS93ZWJwfGFEaGpMMmhtWlM4eE5URXhNRFE1TXpBeE1UazVPQzh4T1RnNU9UQTNPRGMxTUROZk1EQXhYemMxTUZkNE56VXdTQXw0MzYwNmY5YTA1ZDE1YTRkZTg5OTJiY2U1OWU5YThlYmMwMzRjODA0Y2EyZWVlYzEzODE0ODU0YWQ1NDZhMGJh",
+    "id": 1788652986936
+  },
+  {
+    "name": "Consola",
+    "description": "Consola Nintendo Switch Neon Joy Con Nueva Version 2019",
+    "price": 1450000,
+    "category": "Videojuegos",
+    "stock": 200,
+    "date": "2026-01-08",
+    "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/32433326/consola-nintendo-switch-neon-joy-con-nueva-version-2019.jpg?v=639059223785100000",
+    "id": 1788653977665
+  },
+  {
+    "name": "Videojuego",
+    "description": "Animal Crossing: New Horizons Nintendo Switch 2 Edition",
+    "price": 450000,
+    "category": "Videojuegos",
+    "stock": 397,
+    "date": "2026-03-18",
+    "imageUrl": "https://media.falabella.com/falabellaCO/73530547_01/w=1500,h=1500,fit=cover",
+    "id": 1788654269024
+  },
+  {
+    "name": "Lavadora",
+    "description": "Lavadora Secadora LG Eléctrica 22 KG AI DD WD22VV2S6B Gris",
+    "price": 4000000,
+    "category": "Electrodoméstico",
+    "stock": 576,
+    "date": "2025-06-05",
+    "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/34527311/Lavadora-secadora-LG-Carga-Frontal-22-kg-48lb-WD22VV2S6BRASSECOL-3272609_a.jpg?v=639215701784200000",
+    "id": 1788654436983
+  },
+  {
+    "name": "Horno Microondas",
+    "description": "Horno Microondas Haceb Negro con GRILL de 25 Lts - 0.9",
+    "price": 459000,
+    "category": "Electrodomésticos",
+    "stock": 300,
+    "date": "2026-07-30",
+    "imageUrl": "https://hacebco.vtexassets.com/arquivos/ids/180135/7704353459739_04.jpg?v=638829544279230000",
+    "id": 1788654814403
+  },
+  {
+    "name": "Nevera",
+    "description": "Nevera No Frost Mabe 360 Lts Inoxidable RMP360FYCU",
+    "price": 1500000,
+    "category": "Electrodomésticos",
+    "stock": 150,
+    "date": "2025-11-05",
+    "imageUrl": "https://soelco.co/wp-content/uploads/RMP360FYCU_02.webp",
+    "id": 1788655101041
+  },
+  {
+    "name": "Secador",
+    "description": "Secador Remington Silk",
+    "price": 300000,
+    "category": "Cuidado personal",
+    "stock": 600,
+    "date": "2026-04-16",
+    "imageUrl": "https://www.remingtonlatam.com/co/wp-content/uploads/sites/27/2019/12/AC9096-Secador-Remington-Silk-Infundido-en-Ceramica-con-Seda-01.jpg",
+    "id": 1788655237699
   }
 ]

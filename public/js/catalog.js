@@ -36,6 +36,7 @@ function renderItem(item) {
             <h2 class="name">${item.name}</h2>
             <p class="description">${item.description || ""}</p>
             <p class="price">$${Number(item.price).toFixed(2)}</p>
+            <button class="btn-buy">Comprar ></button>
         </div>
     `;
     catalogContainer.appendChild(card);
