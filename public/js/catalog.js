@@ -1,36 +1,54 @@
-// Constante con la URL base de la API
-const API_URL = "/api/items";
+import { getItems } from "./services/api.js";
+
 const catalogContainer = document.getElementById("catalogContainer");
 
 // Función principal para cargar los items desde la API
 async function loadCatalog() {
     try {
-        const res = await fetch(API_URL);
-        const items = await res.json();
-        catalogContainer.innerHTML = "";
-        items.forEach(item => {
-            renderItem(item);
-        });
+        const items = await getItems();
+        catalogContainer.replaceChildren(...items.map(renderItem));
     } catch (err) {
         console.error("Error cargando catálogo:", err);
         alert("No se pudo cargar los items");
     }
-}                                                   
+}
 
 // Función para renderizar un item en el catálogo
 function renderItem(item) {
     const card = document.createElement("article");
     card.className = "card";
-    card.innerHTML = `
-        ${item.imageUrl ? `<img class="card-image" src="${item.imageUrl}" alt="Imagen de ${item.name}" loading="lazy">` : ""}
-        <div class="card-container">
-            <h2 class="name">${item.name}</h2>
-            <p class="description">${item.description || ""}</p>
-            <p class="price">$${Number(item.price).toFixed(2)}</p>
-            <button class="btn-buy">Comprar ></button>
-        </div>
-    `;
-    catalogContainer.appendChild(card);
+
+    if (item.imageUrl) {
+        const image = document.createElement("img");
+        image.className = "card-image";
+        image.src = item.imageUrl;
+        image.alt = `Imagen de ${item.name}`;
+        image.loading = "lazy";
+        card.appendChild(image);
+    }
+
+    const container = document.createElement("div");
+    container.className = "card-container";
+
+    const name = document.createElement("h2");
+    name.className = "name";
+    name.textContent = item.name;
+
+    const description = document.createElement("p");
+    description.className = "description";
+    description.textContent = item.description || "";
+
+    const price = document.createElement("p");
+    price.className = "price";
+    price.textContent = `$${Number(item.price).toFixed(2)}`;
+
+    const button = document.createElement("button");
+    button.className = "btn-buy";
+    button.textContent = "Comprar >";
+
+    container.append(name, description, price, button);
+    card.appendChild(container);
+    return card;
 }
 
 // Inicializar el catálogo cuando cargue la página
