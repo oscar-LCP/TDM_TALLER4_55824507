@@ -1,4 +1,5 @@
-[
+{ "items":
+  [
   {
     "name": "Audifonos Inalambricos",
     "description": "Bluetooth Over Ear Diadema Estereo P9 Plateado",
@@ -123,10 +124,12 @@
     "name": "Televisor Lg",
     "description": "fhsdfh",
     "price": 0,
-    "category": "Electro",
+    "category": "Celulares",
     "stock": 234,
     "date": "2026-09-16",
     "imageUrl": "",
     "id": 1789603880355
   }
 ]
+}
+

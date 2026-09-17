@@ -1,6 +1,7 @@
 {
   "name": "tdm_taller4_55824507",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "homepage": "https://github.com/oscar-LCP/TDM_TALLER4_55824507#readme",
   "bugs": {
@@ -12,12 +13,18 @@
   },
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "exxpress": "^1.0.0"
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "lowdb": "^7.0.1",
+    "morgan": "^1.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

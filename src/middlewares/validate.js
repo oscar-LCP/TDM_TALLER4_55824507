@@ -1,4 +1,4 @@
-categories = ["Celulares", "Electro", "Televisores", "Computadores", "Videojuegos", "Audio", "Electrohogar", "Audifonos"];
+const categories = ["Celulares", "Electro", "Televisores", "Computadores", "Videojuegos", "Audio", "Electrohogar", "Audifonos"];
 
 export function validateItem(req, res, next) {
     const { price, category, stock } = req.body;
@@ -11,7 +11,7 @@ export function validateItem(req, res, next) {
 
     // Validar categoría
     if (!categories.includes(category)) {
-        errors.category = `La categoría debe ser una de: ${categories.join(", ")}`;
+        errors.category = `La categoría no es valida`;
     }
 
     //Validar stock 

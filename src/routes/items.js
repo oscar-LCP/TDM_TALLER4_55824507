@@ -1,96 +1,64 @@
-const fs = require("fs");
-const path = require("path");
+import { validateItem } from "../middlewares/validate.js";
+import { Router } from "express";
+import { getAllItems, findItem, insertItem, modifyItem, removeItem } from "../db/db.js";
 
-const DATA_PATH = path.join(__dirname, "..", "data", "items.json");
+const router = Router();
 
-function readData() {
-    return JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
-}
+router.param("id", (req, res, next, value) => {
+    const id = Number(value);
+    if (!Number.isInteger(id)) {
+        return res.status(400).json({ error: "El id debe ser un número entero" });
+    }
+    req.itemId = id;
+    next();
+});
 
-function writeData(data) {
-    fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2));
-}
+// GET /api/items
+router.get("/", (req, res) => {
+    res.json(getAllItems());
+});
 
-function handleItemsRoutes(req, res) {
-    if (!req.url.startsWith("/api/items")) return false;
+// GET /api/items/:id
+router.get("/:id", (req, res) => {
+    const item = findItem(req.itemId);
+    if (!item) return res.status(404).json({ error: "Item no encontrado" });
+    res.json(item);
+});
 
-    res.setHeader("Content-Type", "application/json");
+// POST /api/items
+router.post("/", validateItem, async (req, res) => {
+    const { name, description } = req.body ?? {};
 
-    // GET /api/items
-    if (req.method === "GET" && req.url === "/api/items") {
-        res.end(JSON.stringify(readData()));
-        return true;
+    if (!name || !name.trim()) {
+        return res.status(400).json({ error: "El campo 'name' es obligatorio" });
     }
 
-    // GET /api/items/:id
-    if (req.method === "GET" && req.url.startsWith("/api/items/")) {
-        const id = parseInt(req.url.split("/").pop());
+    const nuevo = await insertItem({ name: name.trim(), description: description?.trim() });
+    res.status(201).json(nuevo);
+});
 
-        if (!isNaN(id)) {
-            const item = readData().find(i => i.id === id);
-            res.end(JSON.stringify(item || { error: "No encontrado" }));
-            return true;
-        }
+// PUT /api/items/:id
+router.put("/:id", validateItem, async (req, res) => {
+    const { name, description } = req.body ?? {};
+
+    if (name !== undefined && !name.trim()) {
+        return res.status(400).json({ error: "El campo 'name' no puede quedar vacío" });
     }
 
-    // POST /api/items
-    if (req.method === "POST" && req.url === "/api/items") {
-        let body = "";
-        req.on("data", chunk => body += chunk);
-        req.on("end", () => {
-            const items = readData();
-            const nuevo = JSON.parse(body);
-            nuevo.id = Date.now();
-            items.push(nuevo);
-            writeData(items);
-            res.end(JSON.stringify(nuevo));
-        });
-        return true;
-    }
+    const changes = {};
+    if (name !== undefined) changes.name = name.trim();
+    if (description !== undefined) changes.description = description.trim();
 
-    // PUT /api/items/:id
-    if (req.method === "PUT" && req.url.startsWith("/api/items/")) {
-        const id = parseInt(req.url.split("/").pop());
+    const actualizado = await modifyItem(req.itemId, changes);
+    if (!actualizado) return res.status(404).json({ error: "Item no encontrado" });
+    res.json(actualizado);
+});
 
-        if (!isNaN(id)) {
-            let body = "";
-            req.on("data", chunk => body += chunk);
-            req.on("end", () => {
-                let items = readData();
-                const idx = items.findIndex(i => i.id === id);
+// DELETE /api/items/:id
+router.delete("/:id", async (req, res) => {
+    const eliminado = await removeItem(req.itemId);
+    if (!eliminado) return res.status(404).json({ error: "Item no encontrado" });
+    res.json({ mensaje: "Item eliminado", id: req.itemId });
+});
 
-                if (idx >= 0) {
-                    const updated = { ...items[idx], ...JSON.parse(body), id };
-                    items[idx] = updated;
-                    writeData(items);
-                    res.end(JSON.stringify(updated));
-                } else {
-                    res.end(JSON.stringify({ error: "No encontrado" }));
-                }
-            });
-            return true;
-        }
-    }
-
-    // DELETE /api/items/:id
-    if (req.method === "DELETE" && req.url.startsWith("/api/items/")) {
-        const id = parseInt(req.url.split("/").pop());
-
-        if (!isNaN(id)) {
-            let items = readData();
-            const newItems = items.filter(i => i.id !== id);
-
-            if (newItems.length !== items.length) {
-                writeData(newItems);
-                res.end(JSON.stringify({ mensaje: "Eliminado" }));
-            } else {
-                res.end(JSON.stringify({ error: "No encontrado" }));
-            }
-            return true;
-        }
-    }
-
-    return false;
-}
-
-module.exports = handleItemsRoutes;
+export default router;
