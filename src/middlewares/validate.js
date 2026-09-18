@@ -5,7 +5,7 @@ export function validateItem(req, res, next) {
     const errors = {};
 
     // Validar precio
-    if (typeof price !== "number" || price <= 0) {
+    if (typeof price !== "number" || price < 0) {
         errors.price = "El precio debe ser mayor a 0";
     }
 
@@ -15,7 +15,7 @@ export function validateItem(req, res, next) {
     }
 
     //Validar stock 
-    if (typeof stock !== "number" || stock <= 0) {
+    if (typeof stock !== "number" || stock < 0) {
         errors.stock = "El numero de stock debe ser mayor a 0";
     }
 

@@ -1,135 +1,124 @@
-{ "items":
-  [
-  {
-    "name": "Audifonos Inalambricos",
-    "description": "Bluetooth Over Ear Diadema Estereo P9 Plateado",
-    "price": 5000000,
-    "category": "Audifonos",
-    "stock": 48,
-    "date": "2026-09-10",
-    "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/24975256/audifonos-inalambricos-bluetooth-over-ear-diadema-estereo-p9-plateado.jpg?v=638639410899930000",
-    "id": 1788647561472
-  },
-  {
-    "name": "Televisor Lg",
-    "description": "Televisor Lg 43 Pulgadas Led Full Hd Smart Tv 43Lm6370pdb",
-    "price": 120000000,
-    "category": "Televisores",
-    "stock": 171,
-    "date": "2026-09-15",
-    "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/33461769/televisor-lg-43-pulgadas-led-full-hd-smart-tv-43lm6370pdb.jpg?v=639149003772170000",
-    "id": 1788647742547
-  },
-  {
-    "name": "BARRA DE SONIDO SILVER",
-    "description": " BARRA DE SONIDO SILVER 6W – E-1406",
-    "price": 300000,
-    "category": "Audio",
-    "stock": 450,
-    "date": "2026-09-21",
-    "imageUrl": "https://jaltechsas.com/wp-content/uploads/2025/09/BARRA-DE-SONIDO-SILVER-6W-E-1406_30782_E-1406_1-600x600.png",
-    "id": 1788647811844
-  },
-  {
-    "name": "Tablet KALLEY",
-    "description": "Tablet KALLEY 11\" Pulgadas FlexTab 256GB WiFi Gris Código: 7705946480741",
-    "price": 450000,
-    "category": "Computadores",
-    "stock": 500,
-    "date": "2026-09-16",
-    "imageUrl": "https://cdn.dam.alkomprar.com/products/7705946480741/7705946480741-001.webp/tablet-kalley-11-pulgadas-flextab-256gb-wifi-gris?w=1400",
-    "id": 1788647941006
-  },
-  {
-    "name": "Samsung Galaxy A16",
-    "description": "256GB 8GB Ram LTE + Smartwatch",
-    "price": 111000,
-    "category": "Celulares",
-    "stock": 200,
-    "date": "2026-08-12",
-    "imageUrl": "https://www.korolos.com.co/wp-content/uploads/2025/06/A16KOROLOS13.jpg",
-    "id": 1788651434907
-  },
-  {
-    "name": "Portátil HP",
-    "description": "15.6\" Pulgadas fd0263la Intel Core i5 - RAM 16GB - Disco SSD 1TB - Azul",
-    "price": 2000000,
-    "category": "Computadores",
-    "stock": 500,
-    "date": "2026-07-13",
-    "imageUrl": "https://www.ktronix.com/medias/198990787503-001-750Wx750H?context=bWFzdGVyfGltYWdlc3wxODQ4MHxpbWFnZS93ZWJwfGFEaGpMMmhtWlM4eE5URXhNRFE1TXpBeE1UazVPQzh4T1RnNU9UQTNPRGMxTUROZk1EQXhYemMxTUZkNE56VXdTQXw0MzYwNmY5YTA1ZDE1YTRkZTg5OTJiY2U1OWU5YThlYmMwMzRjODA0Y2EyZWVlYzEzODE0ODU0YWQ1NDZhMGJh",
-    "id": 1788652986936
-  },
-  {
-    "name": "Consola Nintendo Switch",
-    "description": "Neon Joy Con Nueva Version 2019",
-    "price": 1450000,
-    "category": "Videojuegos",
-    "stock": 200,
-    "date": "2026-01-08",
-    "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/32433326/consola-nintendo-switch-neon-joy-con-nueva-version-2019.jpg?v=639059223785100000",
-    "id": 1788653977665
-  },
-  {
-    "name": "Animal Crossing",
-    "description": "New Horizons Nintendo Switch 2 Edition",
-    "price": 450000,
-    "category": "Videojuegos",
-    "stock": 397,
-    "date": "2026-03-18",
-    "imageUrl": "https://media.falabella.com/falabellaCO/73530547_01/w=1500,h=1500,fit=cover",
-    "id": 1788654269024
-  },
-  {
-    "name": "Lavadora Secadora LG",
-    "description": "Lavadora Secadora LG Eléctrica 22 kg WD22VV2S6BR",
-    "price": 4000000,
-    "category": "Electro",
-    "stock": 576,
-    "date": "2025-06-05",
-    "imageUrl": "https://media.falabella.com/falabellaCO/42000459_01/w=1500,h=1500,fit=cover",
-    "id": 1788654436983
-  },
-  {
-    "name": "Horno Microondas Haceb",
-    "description": "Negro con GRILL de 25 Lts - 0.9",
-    "price": 459000,
-    "category": "Electrohogar",
-    "stock": 300,
-    "date": "2026-07-30",
-    "imageUrl": "https://hacebco.vtexassets.com/arquivos/ids/180135/7704353459739_04.jpg?v=638829544279230000",
-    "id": 1788654814403
-  },
-  {
-    "name": "Nevera No Frost Mabe",
-    "description": "360 Lts Inoxidable RMP360FYCU",
-    "price": 1500000,
-    "category": "Electro",
-    "stock": 150,
-    "date": "2025-11-05",
-    "imageUrl": "https://soelco.co/wp-content/uploads/RMP360FYCU_02.webp",
-    "id": 1788655101041
-  },
-  {
-    "name": "Secador Remington",
-    "description": "Secador Remington Silk",
-    "price": 300000,
-    "category": "Electrohogar",
-    "stock": 600,
-    "date": "2026-04-16",
-    "imageUrl": "https://www.remingtonlatam.com/co/wp-content/uploads/sites/27/2019/12/AC9096-Secador-Remington-Silk-Infundido-en-Ceramica-con-Seda-01.jpg",
-    "id": 1788655237699
-  },
-  {
-    "name": "Televisor Lg",
-    "description": "fhsdfh",
-    "price": 0,
-    "category": "Celulares",
-    "stock": 234,
-    "date": "2026-09-16",
-    "imageUrl": "",
-    "id": 1789603880355
-  }
-]
+{
+  "items": [
+    {
+      "name": "Audifonos Inalambricos",
+      "description": "Bluetooth Over Ear Diadema Estereo P9 Plateado",
+      "price": 5000000,
+      "category": "Audifonos",
+      "stock": 48,
+      "date": "2026-09-10",
+      "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/24975256/audifonos-inalambricos-bluetooth-over-ear-diadema-estereo-p9-plateado.jpg?v=638639410899930000",
+      "id": 1788647561472
+    },
+    {
+      "name": "Televisor Lg",
+      "description": "Televisor Lg 43 Pulgadas Led Full Hd Smart Tv 43Lm6370pdb",
+      "price": 120000000,
+      "category": "Televisores",
+      "stock": 171,
+      "date": "2026-09-15",
+      "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/33461769/televisor-lg-43-pulgadas-led-full-hd-smart-tv-43lm6370pdb.jpg?v=639149003772170000",
+      "id": 1788647742547
+    },
+    {
+      "name": "BARRA DE SONIDO SILVER",
+      "description": " BARRA DE SONIDO SILVER 6W – E-1406",
+      "price": 300000,
+      "category": "Audio",
+      "stock": 450,
+      "date": "2026-09-21",
+      "imageUrl": "https://jaltechsas.com/wp-content/uploads/2025/09/BARRA-DE-SONIDO-SILVER-6W-E-1406_30782_E-1406_1-600x600.png",
+      "id": 1788647811844
+    },
+    {
+      "name": "Tablet KALLEY",
+      "description": "Tablet KALLEY 11\" Pulgadas FlexTab 256GB WiFi Gris Código: 7705946480741",
+      "price": 450000,
+      "category": "Computadores",
+      "stock": 500,
+      "date": "2026-09-16",
+      "imageUrl": "https://cdn.dam.alkomprar.com/products/7705946480741/7705946480741-001.webp/tablet-kalley-11-pulgadas-flextab-256gb-wifi-gris?w=1400",
+      "id": 1788647941006
+    },
+    {
+      "name": "Samsung Galaxy A16",
+      "description": "256GB 8GB Ram LTE + Smartwatch",
+      "price": 111000,
+      "category": "Celulares",
+      "stock": 200,
+      "date": "2026-08-12",
+      "imageUrl": "https://www.korolos.com.co/wp-content/uploads/2025/06/A16KOROLOS13.jpg",
+      "id": 1788651434907
+    },
+    {
+      "name": "Portátil HP",
+      "description": "15.6\" Pulgadas fd0263la Intel Core i5 - RAM 16GB - Disco SSD 1TB - Azul",
+      "price": 2000000,
+      "category": "Computadores",
+      "stock": 500,
+      "date": "2026-07-13",
+      "imageUrl": "https://www.ktronix.com/medias/198990787503-001-750Wx750H?context=bWFzdGVyfGltYWdlc3wxODQ4MHxpbWFnZS93ZWJwfGFEaGpMMmhtWlM4eE5URXhNRFE1TXpBeE1UazVPQzh4T1RnNU9UQTNPRGMxTUROZk1EQXhYemMxTUZkNE56VXdTQXw0MzYwNmY5YTA1ZDE1YTRkZTg5OTJiY2U1OWU5YThlYmMwMzRjODA0Y2EyZWVlYzEzODE0ODU0YWQ1NDZhMGJh",
+      "id": 1788652986936
+    },
+    {
+      "name": "Consola Nintendo Switch",
+      "description": "Neon Joy Con Nueva Version 2019",
+      "price": 1450000,
+      "category": "Videojuegos",
+      "stock": 200,
+      "date": "2026-01-08",
+      "imageUrl": "https://exitocol.vtexassets.com/arquivos/ids/32433326/consola-nintendo-switch-neon-joy-con-nueva-version-2019.jpg?v=639059223785100000",
+      "id": 1788653977665
+    },
+    {
+      "name": "Animal Crossing",
+      "description": "New Horizons Nintendo Switch 2 Edition",
+      "price": 450000,
+      "category": "Videojuegos",
+      "stock": 397,
+      "date": "2026-03-18",
+      "imageUrl": "https://media.falabella.com/falabellaCO/73530547_01/w=1500,h=1500,fit=cover",
+      "id": 1788654269024
+    },
+    {
+      "name": "Lavadora Secadora LG",
+      "description": "Lavadora Secadora LG Eléctrica 22 kg WD22VV2S6BR",
+      "price": 4000000,
+      "category": "Electro",
+      "stock": 576,
+      "date": "2025-06-05",
+      "imageUrl": "https://media.falabella.com/falabellaCO/42000459_01/w=1500,h=1500,fit=cover",
+      "id": 1788654436983
+    },
+    {
+      "name": "Horno Microondas Haceb",
+      "description": "Negro con GRILL de 25 Lts - 0.9",
+      "price": 459000,
+      "category": "Electrohogar",
+      "stock": 300,
+      "date": "2026-07-30",
+      "imageUrl": "https://hacebco.vtexassets.com/arquivos/ids/180135/7704353459739_04.jpg?v=638829544279230000",
+      "id": 1788654814403
+    },
+    {
+      "name": "Nevera No Frost Mabe",
+      "description": "360 Lts Inoxidable RMP360FYCU",
+      "price": 1500000,
+      "category": "Electro",
+      "stock": 150,
+      "date": "2025-11-05",
+      "imageUrl": "https://soelco.co/wp-content/uploads/RMP360FYCU_02.webp",
+      "id": 1788655101041
+    },
+    {
+      "name": "Secador Remington",
+      "description": "Secador Remington Silk",
+      "price": 300000,
+      "category": "Electrohogar",
+      "stock": 600,
+      "date": "2026-04-16",
+      "imageUrl": "https://www.remingtonlatam.com/co/wp-content/uploads/sites/27/2019/12/AC9096-Secador-Remington-Silk-Infundido-en-Ceramica-con-Seda-01.jpg",
+      "id": 1788655237699
+    }
+  ]
 }
-

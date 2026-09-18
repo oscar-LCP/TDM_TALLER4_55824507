@@ -1,39 +1,49 @@
 const API_URL = "/api/items";
 
-export async function getItems() {
-    const res = await fetch(API_URL);
-    if (!res.ok) throw new Error("Error al cargar items");
+async function request(url, options) {
+    const res = await fetch(url, options);
+
+    if (!res.ok) {
+        let message = `Error ${res.status}`;
+        try {
+            const body = await res.json();
+            if (body.error) message = body.error;
+        } catch {
+            // La respuesta no era JSON (ej. estamos sin conexión): dejamos el mensaje genérico.
+        }
+        throw new Error(message);
+    }
+
     return res.json();
 }
 
-export async function getItem(id) {
-    const res = await fetch(`${API_URL}/${id}`);
-    if (!res.ok) throw new Error("Item no encontrado");
-    return res.json();
+// Cabecera reutilizada por POST y PUT
+const JSON_HEADERS = { "Content-Type": "application/json" };
+
+export function getItems() {
+    return request(API_URL);
 }
 
-export async function createItem(data) {
-    const res = await fetch(API_URL, {
+export function getItem(id) {
+    return request(`${API_URL}/${id}`);
+}
+
+export function createItem(data) {
+    return request(API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: JSON_HEADERS,
         body: JSON.stringify(data)
     });
-    if (!res.ok) throw new Error("Error al crear item");
-    return res.json();
 }
 
-export async function updateItem(id, data) {
-    const res = await fetch(`${API_URL}/${id}`, {
+export function updateItem(id, data) {
+    return request(`${API_URL}/${id}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: JSON_HEADERS,
         body: JSON.stringify(data)
     });
-    if (!res.ok) throw new Error("Error al actualizar item");
-    return res.json();
 }
 
-export async function deleteItem(id) {
-    const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-    if (!res.ok) throw new Error("Error al eliminar item");
-    return res.json();
+export function deleteItem(id) {
+    return request(`${API_URL}/${id}`, { method: "DELETE" });
 }
