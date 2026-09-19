@@ -1,7 +1,6 @@
-import { validateItem } from "../middlewares/validate.js";
 import { Router } from "express";
 import { getAllItems, findItem, insertItem, modifyItem, removeItem } from "../db/db.js";
-
+import { validateItem } from "../middlewares/validate.js";
 const router = Router();
 
 router.param("id", (req, res, next, value) => {
@@ -26,28 +25,63 @@ router.get("/:id", (req, res) => {
 });
 
 // POST /api/items
-router.post("/", validateItem, async (req, res) => {
-    const { name, description } = req.body ?? {};
+router.post("/", async (req, res) => {
+    const { name, description, price, category, stock, date, imageURL } = req.body ?? {};
 
-    if (!name || !name.trim()) {
-        return res.status(400).json({ error: "El campo 'name' es obligatorio" });
+    if (typeof name !== "string" || !name.trim()) {
+        return res.status(400).json({
+            error: "El campo 'name' es obligatorio"
+        });
     }
 
-    const nuevo = await insertItem({ name: name.trim(), description: description?.trim() });
+    const nuevo = await insertItem({
+        name: name.trim(),
+        description: typeof description === "string" ? description.trim() : description ?? "",
+        price,
+        category,
+        stock,
+        date,
+        imageURL
+    });
+
     res.status(201).json(nuevo);
 });
 
 // PUT /api/items/:id
-router.put("/:id", validateItem, async (req, res) => {
-    const { name, description } = req.body ?? {};
+router.put("/:id", async (req, res) => {
+    const { name, description, price, category, stock, date, imageURL } = req.body ?? {};
 
-    if (name !== undefined && !name.trim()) {
+    if (name !== undefined && (typeof name !== "string" || !name.trim())) {
         return res.status(400).json({ error: "El campo 'name' no puede quedar vacío" });
     }
 
     const changes = {};
+
     if (name !== undefined) changes.name = name.trim();
-    if (description !== undefined) changes.description = description.trim();
+
+    if (description !== undefined) {
+        changes.description = typeof description === "string" ? description.trim() : description ?? "";
+    }
+
+    if (price !== undefined) {
+        changes.price = price;
+    }
+
+    if (category !== undefined) {
+        changes.category = category;
+    }
+
+    if (stock !== undefined) {
+        changes.stock = stock;
+    }
+
+    if (date !== undefined) {
+        changes.date = date;
+    }
+
+    if (imageURL !== undefined) {
+        changes.imageURL = imageURL;
+    }
 
     const actualizado = await modifyItem(req.itemId, changes);
     if (!actualizado) return res.status(404).json({ error: "Item no encontrado" });
