@@ -5,7 +5,18 @@ const catalogContainer = document.getElementById("catalogContainer");
 // Función principal para cargar los items desde la API
 async function loadCatalog() {
     try {
-        const items = await getItems();
+        if (!catalogContainer) {
+            console.warn("No existe #catalogContainer en la página");
+            return;
+        }
+
+        const response = await getItems();
+        const items = Array.isArray(response)
+            ? response
+            : Array.isArray(response?.items)
+                ? response.items
+                : [];
+
         catalogContainer.replaceChildren(...items.map(renderItem));
     } catch (err) {
         console.error("Error cargando catálogo:", err);
