@@ -9,12 +9,12 @@ const categories = ["Celulares",
 ];
 
 export function validateItem(req, res, next) {
-    const { price, category } = req.body ?? {};
+    const { price, category, stock } = req.body ?? {};
     const errors = {};
 
     // Validar precio
     if (price !== undefined) {
-        if (typeof price !== "number" || price < 0) {
+        if (typeof price !== "number" || price <= 0) {
             errors.price = "El precio debe ser mayor a 0";
         }
     }
@@ -27,8 +27,10 @@ export function validateItem(req, res, next) {
     }
     
     //Validar stock 
-    if (typeof stock !== "number" || stock < 0) {
-        errors.stock = "El numero de stock debe ser mayor a 0";
+    if (stock !== undefined) {
+        if (typeof stock !== "number" || stock <= 0) {
+            errors.stock = "El stock debe ser mayor 0";
+        }
     }
 
     // Si hay errores

@@ -7,9 +7,13 @@ async function request(url, options) {
         let message = `Error ${res.status}`;
         try {
             const body = await res.json();
-            if (body.error) message = body.error;
+            if (body.errors) {
+                message = Object.values(body.errors).join("\n");
+            } else if (body.error) {
+                message = body.error;
+        }
         } catch {
-            // La respuesta no era JSON (ej. estamos sin conexión): dejamos el mensaje genérico.
+            message = "Ocurrió un error al comunicarse con el servidor.";
         }
         throw new Error(message);
     }

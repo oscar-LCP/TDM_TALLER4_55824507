@@ -25,7 +25,7 @@ router.get("/:id", (req, res) => {
 });
 
 // POST /api/items
-router.post("/", async (req, res) => {
+router.post("/", validateItem, async (req, res) => {
     console.log("========== POST ==========");
     console.log("BODY COMPLETO:", req.body);
 
@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
 });
 
 // PUT /api/items/:id
-router.put("/:id", async (req, res) => {
+router.put("/:id", validateItem, async (req, res) => {
     const { name, description, price, category, stock, date, imageUrl } = req.body ?? {};
 
     if (name !== undefined && (typeof name !== "string" || !name.trim())) {
