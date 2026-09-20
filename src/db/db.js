@@ -19,8 +19,8 @@ export function findItem(id) {
 }
 
 /** Crea un item y lo persiste. */
-export async function insertItem({ name, description, price, category, stock, date, imageURL }) {
-    const item = { id: Date.now(), name, description: description ?? "", price, category, stock, date, imageURL };
+export async function insertItem({ name, description, price, category, stock, date, imageUrl }) {
+    const item = { id: Date.now(), name, description: description ?? "", price, category, stock, date, imageUrl };
     // db.update() modifica los datos y escribe el archivo en una sola operación.
     await db.update((data) => data.items.push(item));
     return item;
