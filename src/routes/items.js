@@ -26,30 +26,19 @@ router.get("/:id", (req, res) => {
 
 // POST /api/items
 router.post("/", async (req, res) => {
-    const { name, description, price, category, stock, date, imageURL } = req.body ?? {};
+    console.log("========== POST ==========");
+    console.log("BODY COMPLETO:", req.body);
 
-    if (typeof name !== "string" || !name.trim()) {
-        return res.status(400).json({
-            error: "El campo 'name' es obligatorio"
-        });
-    }
+    const nuevo = await insertItem(req.body);
 
-    const nuevo = await insertItem({
-        name: name.trim(),
-        description: typeof description === "string" ? description.trim() : description ?? "",
-        price,
-        category,
-        stock,
-        date,
-        imageURL
-    });
+    console.log("ITEM QUE DEVUELVE DB:", nuevo);
 
     res.status(201).json(nuevo);
 });
 
 // PUT /api/items/:id
 router.put("/:id", async (req, res) => {
-    const { name, description, price, category, stock, date, imageURL } = req.body ?? {};
+    const { name, description, price, category, stock, date, imageUrl } = req.body ?? {};
 
     if (name !== undefined && (typeof name !== "string" || !name.trim())) {
         return res.status(400).json({ error: "El campo 'name' no puede quedar vacío" });
@@ -79,8 +68,8 @@ router.put("/:id", async (req, res) => {
         changes.date = date;
     }
 
-    if (imageURL !== undefined) {
-        changes.imageURL = imageURL;
+    if (imageUrl !== undefined) {
+        changes.imageUrl = imageUrl;
     }
 
     const actualizado = await modifyItem(req.itemId, changes);
