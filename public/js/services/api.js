@@ -24,8 +24,28 @@ async function request(url, options) {
 // Cabecera reutilizada por POST y PUT
 const JSON_HEADERS = { "Content-Type": "application/json" };
 
-export function getItems() {
-    return request(API_URL);
+export function getItems(params = {}) {
+    const query = new  URLSearchParams(params);
+    if (params.q) {
+        query.set("q", params.q);
+    }
+
+    if (params.category) {
+        query.set("category", params.category);
+    }
+
+    if (params.minPrice !== undefined) {
+        query.set("minPrice", params.minPrice);
+    }
+
+    if (params.maxPrice !== undefined) {
+        query.set("maxPrice", params.maxPrice);
+    }
+
+    const url = query.toString() //Esta parte se hizo con Chat.gpt
+        ? `${API_URL}?${query.toString()}`
+        : API_URL;
+    return request(url);
 }
 
 export function getItem(id) {

@@ -1,6 +1,10 @@
 import { getItems } from "./services/api.js";
 
 const catalogContainer = document.getElementById("catalogContainer");
+const searchInput = document.getElementById("search");
+const minPriceInput = document.getElementById("minPrice");
+const maxPriceInput = document.getElementById("maxPrice");
+const categoryButtons = document.querySelectorAll("[data-category]");
 
 // Función principal para cargar los items desde la API
 async function loadCatalog() {
@@ -10,7 +14,34 @@ async function loadCatalog() {
             return;
         }
 
-        const response = await getItems();
+        const params = {};
+        // Buscar por nombre o descripción
+        if (searchInput) {
+            const search = searchInput.value.trim();
+
+            if (search) {
+                params.q = search;
+            }
+        }
+
+        // Obtener la categoría seleccionada
+        const activeButton = document.querySelector(
+            "[data-category].active"
+        );
+
+        if (activeButton && activeButton.dataset.category) {
+            params.category = activeButton.dataset.category;
+        }
+
+        if (minPriceInput && minPriceInput.value !== "") {
+            params.minPrice = Number(minPriceInput.value);
+        }
+
+        if (maxPriceInput && maxPriceInput.value !== "") {
+            params.maxPrice = Number(maxPriceInput.value);
+        }
+
+        const response = await getItems(params);
         const items = Array.isArray(response)
             ? response
             : Array.isArray(response?.items)
@@ -23,6 +54,27 @@ async function loadCatalog() {
         alert("No se pudo cargar los items");
     }
 }
+
+// Buscador
+if (searchInput) {
+    searchInput.addEventListener("input", loadCatalog);
+}
+ //La parte de las categorias
+// Categorias
+categoryButtons.forEach(button => {
+    button.addEventListener("click", () => {
+
+        categoryButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        loadCatalog();
+    });
+});
+
+minPriceInput.addEventListener("input", loadCatalog);
+maxPriceInput.addEventListener("input", loadCatalog);
 
 // Función para renderizar un item en el catálogo
 function renderItem(item) {

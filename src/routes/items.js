@@ -14,7 +14,37 @@ router.param("id", (req, res, next, value) => {
 
 // GET /api/items
 router.get("/", (req, res) => {
-    res.json(getAllItems());
+    const { q, category, sort, minPrice, maxPrice} = req.query;
+
+    let items = getAllItems();
+
+    if (q) {
+        const search = q.toLowerCase(); 
+
+        items = items.filter(item =>
+            item.name.toLowerCase().includes(search) || item.description.toLowerCase().includes(search)
+        );
+    }
+
+    if (category) {
+        items = items.filter(item =>
+            item.category.toLowerCase() === category.toLowerCase()
+        );
+    }
+
+    if (minPrice !== undefined) {
+        items = items.filter(item =>
+            item.price >= Number(minPrice)
+        );
+    }
+
+    if (maxPrice !== undefined) {
+        items = items.filter(item =>
+            item.price <= Number(maxPrice)
+        );
+    }
+
+    res.json(items);
 });
 
 // GET /api/items/:id
