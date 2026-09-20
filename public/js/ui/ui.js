@@ -16,7 +16,7 @@ export function renderItems(items, tableBody) {
     if (items.length === 0) {
         tableBody.innerHTML = `
             <tr>
-                <td colspan="4" class="px-4 py-10 text-center text-sm text-slate-400">
+                <td colspan="9" class="px-4 py-10 text-center text-sm text-slate-400">
                     Todavía no hay items. Agrega el primero con el formulario de arriba.
                 </td>
             </tr>`;
@@ -34,7 +34,17 @@ export function renderItems(items, tableBody) {
                 <td class="px-4 py-3 text-slate-500">${escapeHtml(item.category) || "—"}</td>
                 <td class="px-4 py-3 text-slate-500">${escapeHtml(item.stock) || "—"}</td>
                 <td class="px-4 py-3 text-slate-500">${escapeHtml(item.date) || "—"}</td>
-                <td class="px-4 py-3 text-slate-500">${escapeHtml(item.imageUrl) || "—"}</td>
+                <td class="px-4 py-3">
+                    ${
+                        item.imageUrl
+                            ? `<img 
+                                src="${escapeHtml(item.imageUrl)}" 
+                                alt="${escapeHtml(item.name)}"
+                                style="width: 80px; height: 80px; object-fit: cover; border-radius: 6px;"
+                            >`
+                            : "—"
+                    }
+                </td>
                 <td class="px-4 py-3">
                     <div class="flex justify-end gap-2">
                         <button class="btn btn-ghost !px-3 !py-1.5 text-xs btn-edit" data-id="${item.id}">
