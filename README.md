@@ -14,13 +14,14 @@ persistidos con **lowdb**.
 ## Puesta en marcha
 
 ```bash
-git clone https://github.com/Draklif/TDM-CRUD.git
-cd TDM-CRUD
+git clone https://github.com/oscar-LCP/TDM_TALLER4_55824507.git
+cd TDM-TALLER4_55824507
 
 npm install          # instala todo lo que dice package.json
 cp .env.example .env # crea tu configuración local
 
-npm run dev          # arranca API + compilador de CSS
+npm run dev:server       # arranca API
+npm run dev:css          # arranca compilador de CSS
 ```
 
 Abre <http://localhost:3000>.
@@ -32,7 +33,8 @@ Abre <http://localhost:3000>.
 
 | Script             | Qué hace                                                        |
 | ------------------ | --------------------------------------------------------------- |
-| `npm run dev`      | Servidor con recarga (nodemon) **+** Tailwind en modo `--watch` |
+| `npm run dev:server`| Servidor con recarga (nodemon)                                 |
+| `npm run dev:css`  | Tailwind en modo `--watch`                                      |
 | `npm start`        | Servidor en modo producción, sin recarga                        |
 | `npm run build`    | Compila y minifica el CSS. Obligatorio antes de desplegar       |
 | `npm run lint`     | Revisa el código con ESLint                                     |
@@ -48,21 +50,23 @@ src/                     # Todo lo que corre en Node (nunca llega al navegador)
 ├── routes/items.js      # Router del CRUD (/api/items)
 ├── db/db.js             # Acceso a datos con lowdb
 ├── middlewares/errors.js# 404 y manejador de errores
-├── data/items.json      # La "base de datos"
-└── styles/input.css     # FUENTE del CSS (Tailwind). Este es el que se edita
+├── middlewares/validate.js# Valida datos a ingresar
+├── data/items.json      # La "base de datos" con los productos
+└── styles/input.css     # FUENTE del CSS (Tailwind).
 
 public/                  # Todo lo que se envía al navegador
 ├── index.html           # Vista de gestión (CRUD)
-├── catalog.html         # Vista de catálogo (ejercicio pendiente)
+├── catalog.html         # Vista del catálogo con los productos
 ├── offline.html         # Se muestra si no hay red ni caché
 ├── manifest.webmanifest # Metadatos de la PWA (nombre, iconos, colores)
 ├── sw.js                # Service worker: caché y modo offline
-├── icons/               # Iconos de instalación
+├── icons/               # Iconos de instalación personalizados
 ├── css/styles.css       # CSS GENERADO (está en .gitignore)
 └── js/
     ├── main.js          # Lógica de la vista de gestión
     ├── catalog.js       # Ejercicio: completar los TODO
     ├── pwa.js           # Registro del SW, botón instalar, aviso offline
+    ├── theme.js         # Para cambiar la aplicación de modo claro a oscuro
     ├── services/api.js  # Llamadas a la API
     └── ui/ui.js         # Render del DOM
 ```
@@ -91,7 +95,3 @@ Los errores siempre vienen como `{ "error": "mensaje" }`.
 
 > La instalación solo funciona en `localhost` o con **HTTPS**. Para probar desde el
 > celular en la misma red, usa un túnel (`npx localtunnel --port 3000`) o despliega.
-
-## Pendiente
-
-- [ ] Completar los `TODO` de `public/js/catalog.js` para renderizar las tarjetas.
