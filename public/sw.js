@@ -1,5 +1,5 @@
 // Al cambiar la versión, el navegador instala un SW nuevo y borra las cachés viejas.
-const VERSION = "v3";
+const VERSION = "v4";
 const SHELL_CACHE = `shell-${VERSION}`; // archivos de la app (HTML, CSS, JS, iconos)
 const DATA_CACHE = `data-${VERSION}`; // respuestas de la API
 
