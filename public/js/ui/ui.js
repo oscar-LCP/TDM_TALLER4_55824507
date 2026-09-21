@@ -26,7 +26,7 @@ export function renderItems(items, tableBody) {
     tableBody.innerHTML = items
         .map(
             (item) => `
-            <tr class="hover:bg-slate-50">
+            <tr>
                 <td class="px-4 py-3 font-mono text-xs text-slate-400">${item.id}</td>
                 <td class="px-4 py-3 font-medium">${escapeHtml(item.name)}</td>
                 <td class="px-4 py-3 text-slate-500">${escapeHtml(item.description) || "—"}</td>
@@ -47,12 +47,8 @@ export function renderItems(items, tableBody) {
                 </td>
                 <td class="px-4 py-3">
                     <div class="flex justify-end gap-2">
-                        <button class="btn btn-ghost !px-3 !py-1.5 text-xs btn-edit" data-id="${item.id}">
-                            Editar
-                        </button>
-                        <button class="btn btn-danger !px-3 !py-1.5 text-xs btn-delete" data-id="${item.id}">
-                            Eliminar
-                        </button>
+                        <button class="btn btn-edit" data-id="${item.id}"> Editar</button>
+                        <button class="btn btn-delete" data-id="${item.id}">Eliminar</button>
                     </div>
                 </td>
             </tr>`

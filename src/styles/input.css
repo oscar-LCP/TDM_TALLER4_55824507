@@ -37,7 +37,60 @@
     --shadow-lg: 0 16px 32px rgba(20, 56, 30, 0.12);
 }
 
+.theme-toggle {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.24);
+}
+
 @layer base {
+
+    :root {color-scheme: light;}
+
+    :root[data-theme="dark"] {
+        --color-white: #111827;
+        --color-black: #ffffff;
+
+        --color-green-1: #166534;
+        --color-green-2: #14532e;
+        --color-green-3: #15803d;
+        --color-green-4: #16a34a;
+        --color-green-5: #22c55e;
+
+        --color-green-soft: rgba(34, 197, 94, 0.18);
+        --color-green-soft-text: #dcfce7;
+
+        --color-danger: #991b1b;
+        --color-danger-soft: #fee2e2;
+        --color-danger-soft-text: #dc2626;
+
+        --color-page: #111827;
+        --color-surface: #1f2937;
+        --color-surface-alt: #374151;
+        --color-border: #4b5563;
+        --color-text-main: #f9fafb;
+        --color-text-secondary: #d1d5db;
+        --color-text-muted: #9ca3af;
+        } 
     *,
     *::before,
     *::after {
@@ -94,7 +147,7 @@
     input:focus-visible,
     select:focus-visible,
     textarea:focus-visible {
-        outline: 3px solid var(--color-green-1);
+        outline: 3px solid var(--color-green-2);
         outline-offset: 3px;
     }
 }
@@ -337,7 +390,7 @@
         padding: 12px 14px;
         border-bottom: 2px solid var(--color-border);
         background: var(--color-green-5);
-        color: white;
+        color: var(--color-surface);
         font-size: 0.78rem;
         font-weight: 700;
         letter-spacing: 0.05em;
@@ -358,6 +411,7 @@
 
     tbody tr:hover {
         background: var(--color-green-soft);
+        color: #ffff;
     }
 
     td:last-child {
@@ -504,6 +558,7 @@
     .navbar {
         align-items: flex-start;
         flex-direction: column;
+        gap: 0.75rem;
     }
 
     .navbar ul {
