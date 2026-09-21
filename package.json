@@ -3,11 +3,6 @@
   "short_name": "CRUD TDM",
   "version": "1.0.0",
   "type": "module",
-  "description": "CRUD de productos tecnológicos de distinto tipo, usando Node.js, Express, LowDB y TailwindCSS",
-  "start_url": "/public/index.html",
-  "display": "standalone",
-  "background_color": "rgba(255, 255, 255, 0.14)",
-  "theme_color": "#166534",
   "homepage": "https://github.com/oscar-LCP/TDM_TALLER4_55824507#readme",
   "bugs": {
     "url": "https://github.com/oscar-LCP/TDM_TALLER4_55824507/issues"
