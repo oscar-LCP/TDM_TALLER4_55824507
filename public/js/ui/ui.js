@@ -40,7 +40,7 @@ export function renderItems(items, tableBody) {
                             ? `<img 
                                 src="${escapeHtml(item.imageUrl)}" 
                                 alt="${escapeHtml(item.name)}"
-                                style="width: 80px; height: 80px; object-fit: cover; border-radius: 6px;"
+                                style="width: 200px; object-fit: contain; border-radius: 6px;"
                             >`
                             : "—"
                     }
