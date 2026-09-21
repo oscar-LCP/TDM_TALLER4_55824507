@@ -12,6 +12,7 @@ const SHELL_ASSETS = [
     "/css/styles.css",
     "/js/main.js",
     "/js/catalog.js",
+    "/js/theme.js",
     "/js/pwa.js",
     "/js/services/api.js",
     "/js/ui/ui.js",
