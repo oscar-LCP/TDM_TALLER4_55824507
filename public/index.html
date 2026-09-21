@@ -9,39 +9,35 @@
     <link rel="manifest" href="manifest.webmanifest">
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Gestión</a></li>
-            <li><a href="catalog.html">Catálogo</a></li>
-        </ul>
+<h1 class="text-center text-6xl font-bold">Tienda Electrix</h1>
+    <div class="topbar">
+        <img
+            src="./icons/icon-192-01.png"
+            alt="Logo de Electrix Shop"
+            class="logo"
+        >
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Gestión</a></li>
+                <li><a href="catalog.html">Catálogo</a></li>
+            </ul>
+        </nav>
 
     <button
     type="button"
     id="toggleThemeBtn"
-    class="btn theme-toggle"
-    aria-label="Cambiar modo"
+    class="theme-toggle"
+    aria-label="Cambiar a modo oscuro"
 >
-    <span class="theme-icon" id="themeIcon" aria-hidden="true">🌙</span>
-    <span class="theme-label" id="themeLabel">Modo oscuro</span>
+    <span id="themeIcon" aria-hidden="true">🌙</span>
+    <span id="themeLabel">Modo oscuro</span>
     </button>
-    <div>
-        <!-- Se muestra solo cuando el navegador queda sin conexión -->
-        <span
-            id="offlineBadge"
-                hidden
-                class="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-800"
-        >
-            Sin conexión
-        </span>
-        <!-- Se muestra solo cuando la app se puede instalar -->
-        <button id="installBtn" hidden class="btn btn-ghost !py-1.5 text-xs">
-            Instalar app
-        </button>
-        </div>
-    </nav>
+    </div>
 
-    <!--formulario para crear y editar-->
-    <h1>Gestión de Items</h1>
+    <!-- formulario para crear y editar -->
+    <h1> Gestor de Items</h1>
+    
 
     <form id="itemForm" class="card">
         <input type="text" id="name" class="input" placeholder="Nombre del item" required>

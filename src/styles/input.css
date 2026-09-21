@@ -46,12 +46,11 @@
     padding: 0.55rem 0.8rem;
     border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: var(--radius-sm);
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(10, 40, 71, 0.73);
     color: white;
     font-family: var(--font-display);
     font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
+    font-weight: 1500;
     transition:
         transform 0.2s ease,
         background 0.2s ease;
@@ -59,7 +58,7 @@
 
 .theme-toggle:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.24);
+    background: rgba(51, 88, 119, 0.659);
 }
 
 @layer base {
@@ -135,6 +134,13 @@
     input,
     select {
         padding: 8px;
+        color: var(--color-text-main);
+        font-weight: 1500;
+
+    }
+    input::placeholder {
+        color: var(--color-text-main);
+        opacity: 0.6;
     }
 
     button {
@@ -156,6 +162,76 @@
 
     /* Navegación */
 
+.topbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 1.25rem;
+}
+
+.topbar .navbar {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.logo {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 auto;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: var(--shadow-md);
+}
+
+.topbar .navbar {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.theme-toggle {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-width: 150px;
+    min-height: 42px;
+    padding: 0.55rem 0.8rem;
+    border: 2px solid var(--color-green-5);
+    border-radius: var(--radius-sm);
+    background: var(--color-green-5);
+    color: var(--color-main);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 1;
+    box-shadow: var(--shadow-md);
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    background: var(--color-green-4);
+    color: var(--color-white);
+    box-shadow: var(--shadow-lg);
+}
+
+:root[data-theme="dark"] .theme-toggle {
+    border-color: var(--color-green-2);
+    background: var(--color-green-2);
+    color: #111827;
+}
+
+:root[data-theme="dark"] .theme-toggle:hover {
+    background: var(--color-green-1);
+}
     .navbar {
         position: relative;
         overflow: hidden;
@@ -586,5 +662,18 @@
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
+    }
+}
+@media (max-width: 700px) {
+    .topbar {
+    align-items: stretch;
+    flex-wrap: wrap;
+    }
+    .topbar .navbar {
+    order: 2;
+    width: 100%;
+    }
+    .theme-toggle {
+     margin-left: auto;
     }
 }

@@ -9,22 +9,31 @@
     <link rel="manifest" href="manifest.webmanifest">
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Gestión</a></li>
-            <li><a href="catalog.html">Catálogo</a></li>
-        </ul>
+<h1 class="text-center text-6xl font-bold">Tienda Electrix</h1>
+    <div class="topbar">
+        <img
+            src="./icons/icon-192-01.png"
+            alt="Logo de Electrix Shop"
+            class="logo"
+        >
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Gestión</a></li>
+                <li><a href="catalog.html">Catálogo</a></li>
+            </ul>
+        </nav>
 
     <button
     type="button"
     id="toggleThemeBtn"
-    class="btn theme-toggle"
-    aria-label="Cambiar modo"
+    class="theme-toggle"
+    aria-label="Cambiar a modo oscuro"
 >
-    <span class="theme-icon" id="themeIcon" aria-hidden="true">🌙</span>
-    <span class="theme-label" id="themeLabel">Modo oscuro</span>
+    <span id="themeIcon" aria-hidden="true">🌙</span>
+    <span id="themeLabel">Modo oscuro</span>
     </button>
-    <div>
+    </div>
         <!-- Se muestra solo cuando el navegador queda sin conexión -->
         <span
             id="offlineBadge"
