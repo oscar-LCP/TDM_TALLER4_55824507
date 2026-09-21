@@ -34,7 +34,18 @@
     <span id="themeLabel">Modo oscuro</span>
     </button>
     </div>
-
+        <!-- Se muestra solo cuando el navegador queda sin conexión -->
+        <span
+            id="offlineBadge"
+                hidden
+                class="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-800"
+        >
+            Sin conexión
+        </span>
+        <!-- Se muestra solo cuando la app se puede instalar -->
+        <button id="installBtn" hidden class="btn btn-ghost !py-1.5 text-xs">
+            Instalar app
+        </button>
     <!-- formulario para crear y editar -->
     <h1> Gestor de Items</h1>
     

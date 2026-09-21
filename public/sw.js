@@ -80,15 +80,7 @@ async function networkFirst(request) {
         return response;
     } catch {
         const cached = await cache.match(request);
-        if (cached) {
-            const headers = new Headers(cached.headers);
-            headers.set("X-Offline-Cache", "true");
-            return new Response(cached.body, {
-                status: cached.status,
-                statusText: cached.statusText,
-                headers
-            });
-        };
+        if (cached) return cached;
 
         return new Response(JSON.stringify({ error: "Sin conexión y sin datos en caché" }), {
             status: 503,
@@ -100,23 +92,19 @@ async function networkFirst(request) {
 /** Responde desde caché; si no está, va a la red y la guarda. */
 async function cacheFirst(request) {
     const cached = await caches.match(request);
-
     if (cached) return cached;
 
     try {
         const response = await fetch(request);
-
         const cache = await caches.open(SHELL_CACHE);
         cache.put(request, response.clone());
-
         return response;
     } catch {
+        // Si era una navegación (abrir una página), mostramos la página de offline.
         if (request.mode === "navigate") {
             const offline = await caches.match("/offline.html");
-
             if (offline) return offline;
         }
-
         return Response.error();
     }
 }
