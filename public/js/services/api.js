@@ -103,7 +103,7 @@ export async function getItems(params = {}) {
 }
 
 export function getItem(id) {
-    return requestWithCacheInfo(`${API_URL}/${id}`);
+    return request(`${API_URL}/${id}`);
 }
 
 export function createItem(data) {
