@@ -16,8 +16,8 @@ const SHELL_ASSETS = [
     "/js/services/api.js",
     "/js/ui/ui.js",
     "/manifest.webmanifest",
-    "/icons/icon-192.png",
-    "/icons/icon-512.png"
+    "/icons/icon-192-01.png",
+    "/icons/icon-512-01.png"
 ];
 
 /* ---- 1. INSTALL: se ejecuta una vez, al registrar el SW ---- */
@@ -98,19 +98,23 @@ async function networkFirst(request) {
 /** Responde desde caché; si no está, va a la red y la guarda. */
 async function cacheFirst(request) {
     const cached = await caches.match(request);
+
     if (cached) return cached;
 
     try {
         const response = await fetch(request);
+
         const cache = await caches.open(SHELL_CACHE);
         cache.put(request, response.clone());
+
         return response;
     } catch {
-        // Si era una navegación (abrir una página), mostramos la página de offline.
         if (request.mode === "navigate") {
             const offline = await caches.match("/offline.html");
+
             if (offline) return offline;
         }
+
         return Response.error();
     }
 }

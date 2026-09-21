@@ -22,6 +22,20 @@
     <span class="theme-icon" id="themeIcon" aria-hidden="true">🌙</span>
     <span class="theme-label" id="themeLabel">Modo oscuro</span>
     </button>
+    <div>
+        <!-- Se muestra solo cuando el navegador queda sin conexión -->
+        <span
+            id="offlineBadge"
+                hidden
+                class="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-800"
+        >
+            Sin conexión
+        </span>
+        <!-- Se muestra solo cuando la app se puede instalar -->
+        <button id="installBtn" hidden class="btn btn-ghost !py-1.5 text-xs">
+            Instalar app
+        </button>
+        </div>
     </nav>
     <!--Catálogo-->
     <h1>Catálogo de Items</h1>
@@ -46,6 +60,7 @@
 
     <script type="module" src="./js/catalog.js"></script>
     <script type="module" src="./js/theme.js"></script>
+    <script src="/js/pwa.js"></script>
 </body>
 </html>
 
