@@ -1,5 +1,5 @@
 // Al cambiar la versión, el navegador instala un SW nuevo y borra las cachés viejas.
-const VERSION = "v1";
+const VERSION = "v3";
 const SHELL_CACHE = `shell-${VERSION}`; // archivos de la app (HTML, CSS, JS, iconos)
 const DATA_CACHE = `data-${VERSION}`; // respuestas de la API
 
@@ -78,7 +78,15 @@ async function networkFirst(request) {
         return response;
     } catch {
         const cached = await cache.match(request);
-        if (cached) return cached;
+        if (cached) {
+            const headers = new Headers(cached.headers);
+            headers.set("X-Offline-Cache", "true");
+            return new Response(cached.body, {
+                status: cached.status,
+                statusText: cached.statusText,
+                headers
+            });
+        };
 
         return new Response(JSON.stringify({ error: "Sin conexión y sin datos en caché" }), {
             status: 503,

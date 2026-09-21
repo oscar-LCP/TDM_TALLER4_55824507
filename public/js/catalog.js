@@ -41,14 +41,15 @@ async function loadCatalog() {
             params.maxPrice = Number(maxPriceInput.value);
         }
 
-        const response = await getItems(params);
-        const items = Array.isArray(response)
-            ? response
-            : Array.isArray(response?.items)
-                ? response.items
-                : [];
-
+        const items = await getItems(params);
+       
         catalogContainer.replaceChildren(...items.map(renderItem));
+
+        if (items.fromCache) {
+            showOfflineMessage();
+        } else {
+            hideOfflineMessage();
+        }
     } catch (err) {
         console.error("Error cargando catálogo:", err);
         alert("No se pudo cargar los items");
@@ -73,8 +74,12 @@ categoryButtons.forEach(button => {
     });
 });
 
-minPriceInput.addEventListener("input", loadCatalog);
-maxPriceInput.addEventListener("input", loadCatalog);
+if (minPriceInput) {
+    minPriceInput.addEventListener("input", loadCatalog);
+}
+if (maxPriceInput) {
+    maxPriceInput.addEventListener("input", loadCatalog);
+}
 
 // Función para renderizar un item en el catálogo
 function renderItem(item) {
@@ -112,6 +117,34 @@ function renderItem(item) {
     container.append(name, description, price, button);
     card.appendChild(container);
     return card;
+}
+
+function showOfflineMessage() {
+    let message = document.getElementById("offlineMessage");
+    if (!message) {
+        message = document.createElement("div");
+        message.id = "offlineMessage";
+        message.textContent = "Mostrando datos en caché (sin conexión)";
+        message.style.cssText = `
+            margin: 15px 0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            background-color: rgba(255, 255, 255, 0.14);
+            color: #166534;
+        `;
+        catalogContainer.parentElement.insertBefore(message, catalogContainer);
+    }
+
+    message.style.display = "block";
+}
+
+function hideOfflineMessage() {
+    const message = document.getElementById("offlineMessage");
+    if (message) {
+        message.style.display = "none";
+    }
 }
 
 // Inicializar el catálogo cuando cargue la página
