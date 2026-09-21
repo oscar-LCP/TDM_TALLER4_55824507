@@ -18,7 +18,8 @@ const SHELL_ASSETS = [
     "/js/ui/ui.js",
     "/manifest.webmanifest",
     "/icons/icon-192-01.png",
-    "/icons/icon-512-01.png"
+    "/icons/icon-512-01.png",
+    "/icons/icon-maskable-512-01.png"
 ];
 
 /* ---- 1. INSTALL: se ejecuta una vez, al registrar el SW ---- */
