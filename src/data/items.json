@@ -119,6 +119,16 @@
       "date": "2026-04-16",
       "imageUrl": "https://www.remingtonlatam.com/co/wp-content/uploads/sites/27/2019/12/AC9096-Secador-Remington-Silk-Infundido-en-Ceramica-con-Seda-01.jpg",
       "id": 1788655237699
+    },
+    {
+      "id": 1790110644794,
+      "name": "Televisor Lg",
+      "description": "fhsdfh",
+      "price": 243325,
+      "category": "Computadores",
+      "stock": 3242,
+      "date": "2026-09-22",
+      "imageUrl": ""
     }
   ]
 }
