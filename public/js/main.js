@@ -15,16 +15,19 @@ document.addEventListener("DOMContentLoaded", () => {
     let editingId = null;
 
     /** Vuelve al modo "crear". */
-    function stopEditing() {
-        editingId = null;
-
-        if (cancelBtn) {
-            resetForm(form, submitBtn, cancelBtn);
-        } else {
-            form.reset();
-            submitBtn.textContent = "Agregar item";
-        }
+function stopEditing() {
+    editingId = null;
+    // Quita el modo edición del grid y las tarjetas
+    tableBody.classList.remove("is-editing");
+    tableBody.querySelectorAll(".card").forEach(c => c.classList.remove("selected-for-edit"));
+    form.classList.remove("is-editing");
+    if (cancelBtn) {
+        resetForm(form, submitBtn, cancelBtn);
+    } else {
+        form.reset();
+        submitBtn.textContent = "Agregar item";
     }
+}
 
     // Eventos de tabla (delegación: un solo listener para todas las filas)
     tableBody.addEventListener("click", async (e) => {
@@ -44,21 +47,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error("Error eliminando:", err);
                 showToast(err.message);
             }
-        } else if (btn.classList.contains("btn-edit")) {
-            try {
-                // Segundo clic en el mismo botón = cancelar la edición
-                if (editingId === id) {
-                    stopEditing();
-                    return;
-                }
-                const item = await getItem(id);
-                fillForm(form, item, submitBtn, cancelBtn);
-                editingId = id;
-            } catch (err) {
-                console.error("Error cargando item:", err);
-                showToast(err.message);
-            }
+        }  else if (btn.classList.contains("btn-edit")) {
+    try {
+        if (editingId === id) {
+            stopEditing();
+            return;
         }
+        const item = await getItem(id);
+        fillForm(form, item, submitBtn, cancelBtn);
+        editingId = id;
+        // Activa el modo edición y marca la tarjeta seleccionada
+        tableBody.classList.add("is-editing");
+        tableBody.querySelectorAll(".card").forEach(card => {
+            card.classList.toggle("selected-for-edit", Number(card.dataset.id) === id);
+        });
+        form.classList.add("is-editing");
+    } catch (err) {
+        console.error("Error cargando item:", err);
+        showToast(err.message);
+    }
+}
     });
 
     if (cancelBtn) {

@@ -55,6 +55,7 @@
     --color-border: #d1e7dd;
     --color-text-main: #14381e;
     --color-text-secondary: #4a6b52;
+    --color-text-muted: #6b8a72;
     --font-display: "Atma", cursive;
   }
 }
@@ -252,9 +253,6 @@
   .block {
     display: block;
   }
-  .flex {
-    display: flex;
-  }
   .grid {
     display: grid;
   }
@@ -273,18 +271,15 @@
   .max-w-sm {
     max-width: var(--container-sm);
   }
+  .flex-grow {
+    flex-grow: 1;
+  }
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .place-items-center {
     place-items: center;
-  }
-  .justify-end {
-    justify-content: flex-end;
-  }
-  .gap-2 {
-    gap: calc(var(--spacing) * 2);
   }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
@@ -294,6 +289,10 @@
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .bg-amber-100 {
     background-color: var(--color-amber-100);
@@ -325,17 +324,8 @@
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
-  .py-3 {
-    padding-block: calc(var(--spacing) * 3);
-  }
-  .py-10 {
-    padding-block: calc(var(--spacing) * 10);
-  }
   .text-center {
     text-align: center;
-  }
-  .font-mono {
-    font-family: var(--font-mono);
   }
   .text-6xl {
     font-size: var(--text-6xl);
@@ -891,6 +881,11 @@
   inherits: false;
   initial-value: 0;
 }
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
@@ -966,6 +961,7 @@
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
+      --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;

@@ -219,7 +219,7 @@
 .theme-toggle:hover {
     transform: translateY(-2px);
     background: var(--color-green-4);
-    color: var(--color-white);
+    color:var(--color-white);
     box-shadow: var(--shadow-lg);
 }
 
@@ -232,6 +232,7 @@
 :root[data-theme="dark"] .theme-toggle:hover {
     background: var(--color-green-1);
 }
+
     .navbar {
         position: relative;
         overflow: hidden;

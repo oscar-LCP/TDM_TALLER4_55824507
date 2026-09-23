@@ -12,46 +12,42 @@ function escapeHtml(value) {
     );
 }
 
-export function renderItems(items, tableBody) {
+export function renderItems(items, container) {
     if (items.length === 0) {
-        tableBody.innerHTML = `
-            <tr>
-                <td colspan="9" class="px-4 py-10 text-center text-sm text-slate-400">
-                    Todavía no hay items. Agrega el primero con el formulario de arriba.
-                </td>
-            </tr>`;
+        container.innerHTML = `
+            <p class="text-center text-sm text-slate-400" style="grid-column: 1 / -1; padding: 2rem;">
+                Todavía no hay items registrados.
+            </p>`;
         return;
     }
 
-    tableBody.innerHTML = items
+    container.innerHTML = items
         .map(
             (item) => `
-            <tr>
-                <td class="px-4 py-3 font-mono text-xs text-slate-400">${item.id}</td>
-                <td class="px-4 py-3 font-medium">${escapeHtml(item.name)}</td>
-                <td class="px-4 py-3 text-slate-500">${escapeHtml(item.description) || "—"}</td>
-                <td class="px-4 py-3 text-slate-500">${escapeHtml(item.price) || "—"}</td>
-                <td class="px-4 py-3 text-slate-500">${escapeHtml(item.category) || "—"}</td>
-                <td class="px-4 py-3 text-slate-500">${escapeHtml(item.stock) || "—"}</td>
-                <td class="px-4 py-3 text-slate-500">${escapeHtml(item.date) || "—"}</td>
-                <td class="px-4 py-3">
-                    ${
-                        item.imageUrl
-                            ? `<img 
-                                src="${escapeHtml(item.imageUrl)}" 
-                                alt="${escapeHtml(item.name)}"
-                                style="width: 200px; object-fit: contain; border-radius: 6px;"
-                            >`
-                            : "—"
-                    }
-                </td>
-                <td class="px-4 py-3">
-                    <div class="flex justify-end gap-2">
-                        <button class="btn btn-edit" data-id="${item.id}"> Editar</button>
-                        <button class="btn btn-delete" data-id="${item.id}">Eliminar</button>
+            <article class="card" data-id="${item.id}">
+                ${
+                    item.imageUrl
+                        ? `<img src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(item.name)}" class="card-image">`
+                        : `<div class="card-image" style="display:flex;align-items:center;justify-content:center;background:var(--color-surface-alt);border-radius:6px;font-size:2rem;">📦</div>`
+                }
+                <div class="card-container">
+                    <span class="badge">${escapeHtml(item.category) || "General"}</span>
+                    <h2 class="name" style="font-size: 1.15rem; font-weight: 700; margin: 6px 0 2px;">
+                        ${escapeHtml(item.name)}
+                    </h2>
+                    <p class="description" style="font-size: 0.85rem; color: var(--color-text-secondary); flex-grow: 1;">
+                        ${escapeHtml(item.description) || "—"}
+                    </p>
+                    <p class="price">$${Number(item.price || 0).toFixed(2)}</p>
+                    <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 10px;">
+                        Stock: ${item.stock ?? 0} | Fecha: ${item.date || "—"}
+                    </p>
+                    <div style="display: flex; gap: 8px; margin-top: auto;">
+                        <button type="button" class="btn-edit" data-id="${item.id}">Editar</button>
+                        <button type="button" class="btn-delete" data-id="${item.id}">Eliminar</button>
                     </div>
-                </td>
-            </tr>`
+                </div>
+            </article>`
         )
         .join("");
 }

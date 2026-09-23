@@ -69,26 +69,16 @@
         <input type="date" id="date" class="input" placeholder="Fecha" required>
         <input type="url" id="imageUrl" class="input" placeholder="URL de imagen (opcional)">
         <button type="submit" id="submitBtn" class="btn">Agregar</button>
+
+        <button type="button" id="cancelBtn" class="btn" style="background: var(--color-surface-alt); color: var(--color-text-main); border: 1px solid var(--color-border);" hidden>Cancelar</button>
     </form>
 
     <!--tabla para mostrar los datos-->
-    <table>
-        <thead>
-            <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Precio</th>
-            <th>Categoría</th>
-            <th>Stock</th>
-            <th>Fecha</th>
-            <th>Imagen</th>
-            <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody id="itemsTable"></tbody>
-    </table>
-
+   <section
+    id="itemsTable"
+    class="catalog-grid management-grid"
+    aria-label="Items registrados"
+></section>
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/theme.js"></script>
     <script src="./js/pwa.js"></script>
