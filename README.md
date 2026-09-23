@@ -44,15 +44,15 @@ Abre <http://localhost:3000>.
 ## Estructura
 
 ```
-src/                     # Todo lo que corre en Node (nunca llega al navegador)
-├── server.js            # Arranque: lee .env y levanta el puerto
-├── app.js               # La app de Express: middlewares y montaje de rutas
-├── routes/items.js      # Router del CRUD (/api/items)
-├── db/db.js             # Acceso a datos con lowdb
-├── middlewares/errors.js# 404 y manejador de errores
-├── middlewares/validate.js# Valida datos a ingresar
-├── data/items.json      # La "base de datos" con los productos
-└── styles/input.css     # FUENTE del CSS (Tailwind).
+src/                        # Todo lo que corre en Node (nunca llega al navegador)
+├── server.js               # Arranque: lee .env y levanta el puerto
+├── app.js                  # La app de Express: middlewares y montaje de rutas
+├── routes/items.js         # Router del CRUD (/api/items)
+├── db/db.js                # Acceso a datos con lowdb
+├── middlewares/errors.js   # 404 y manejador de errores
+├── middlewares/validate.js # Valida datos a ingresar
+├── data/items.json         # La "base de datos" con los productos
+└── styles/input.css        # FUENTE del CSS (Tailwind).
 
 public/                  # Todo lo que se envía al navegador
 ├── index.html           # Vista de gestión (CRUD)
@@ -75,13 +75,41 @@ public/                  # Todo lo que se envía al navegador
 
 Base: `/api/items`
 
-| Método   | Ruta   | Body                      | Respuesta                    |
-| -------- | ------ | ------------------------- | ---------------------------- |
-| `GET`    | `/`    | —                         | `200` lista de items         |
-| `GET`    | `/:id` | —                         | `200` item · `404` no existe |
-| `POST`   | `/`    | `{ name, description? }`  | `201` item creado · `400`    |
-| `PUT`    | `/:id` | `{ name?, description? }` | `200` item · `404` · `400`   |
-| `DELETE` | `/:id` | —                         | `200` `{ mensaje }` · `404`  |
+| Método   | Ruta   | Body                                                                  | Respuesta                    |
+| -------- | ------ | --------------------------------------------------------------------- | ---------------------------- |
+| `GET`    | `/`    | —                                                                     | `200` lista de items         |
+| `GET`    | `/:id` | —                                                                     | `200` item · `404` no existe |
+| `POST`   | `/`    | `{ name, description, price, category, stock, date, imageURL? }`      | `201` item creado · `400`    |
+| `PUT`    | `/:id` | `{ name?, description?, price?, category?, stock?, date?, imageURL? }`| `200` item · `404` · `400`   |
+| `DELETE` | `/:id` | —                                                                     | `200` `{ mensaje }` · `404`  |
+
+Query params:
+
+Base: GET /api/items
+
+| Parámetro  | Tipo   | Función                         |
+|------------|--------|---------------------------------|
+| `q`        | String | Busca por nombre o descripción. |
+| `category` | String | Filtra por categoría.           |
+| `minPrice` | Number | Establece el precio mínimo.     |
+| `maxPrice` | Number | Establece el precio máximo.     |
+
+#Modelo de datos
+
+### Modelo de Item
+
+Cada item contiene las siguientes propiedades:
+
+| Campo         | Tipo   | Descripción                   |
+|---------------|--------|-------------------------------|
+| `id`          | Number | Identificador único del item. |
+| `name`        | String | Nombre del item.              |
+| `description` | String | Descripción del item.         |
+| `price`       | Number | Precio del item.              |
+| `category`    | String | Categoría del item.           |
+| `stock`       | Number | Cantidad disponible.          |
+| `date`        | String | Fecha del item.               |
+| `imageUrl`    | String | URL de la imagen del item.    |
 
 Los errores siempre vienen como `{ "error": "mensaje" }`.
 
