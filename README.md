@@ -15,7 +15,7 @@ persistidos con **lowdb**.
 
 ```bash
 git clone https://github.com/oscar-LCP/TDM_TALLER4_55824507.git
-cd TDM-TALLER4_55824507
+cd TDM_TALLER4_55824507
 
 npm install          # instala todo lo que dice package.json
 cp .env.example .env # crea tu configuración local
